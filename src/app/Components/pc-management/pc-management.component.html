@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-11">
+            <h4 class="box-title">List of PC</h4>
+          </div>
+          <div class="col-lg-1">
+            <div class="form-actions form-group"><button type="submit" (click)="loadAddPCComponent()" class="btn btn-primary btn-sm">Add item</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="row margin-l20">
+        <div class="table-stats order-table ov-h w-97">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th class="serial">#</th>
+                <th>Category Name</th>
+                <th>PC Name</th>
+                <th>PC Processor</th>
+                <th>Price</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="PCList && PCList.length > 0">
+              <tr *ngFor="let PC of PCList;let i = index">
+                <td class="serial">
+                  {{i+1}}
+                </td>
+                <td class="avatar">
+                  <span>{{PC.ProductCategory.CategoryName}}</span>
+                </td>
+                <td>
+                  <span class="name">{{PC.Name}}</span>
+                </td>
+                <td>
+                  <span class="name">{{PC.Processor.Model}}</span>
+                </td>
+                <td>
+                  <span class="product">{{PC.Price}}</span>
+                </td>
+                <td>
+                  <span (click)="loadViewPCComponent(PC)" class="cursor-pointer badge badge-info">View</span>
+                </td>
+                <td>
+                  <span (click)="loadEditPCComponent(PC)" class="cursor-pointer badge badge-secondary">Edit</span>
+                </td>
+                <td>
+                  <span (click)="loadDeletePCComponent(PC.Id)" class="cursor-pointer badge badge-danger">Delete</span>
+                </td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="!PCList || (PCList && PCList.length == 0)" style="text-align: center;">
+              <tr>
+                <td style="text-align: center;" colspan="8">No Records Found</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div> <!-- /.table-stats -->
+      </div> <!-- /.row -->
+      <div class="card-body"></div>
+    </div>
+  </div><!-- /# column -->
+  <ng-container #addPC></ng-container>
+  <ng-container #editPC></ng-container>
+  <ng-container #deletePC></ng-container>
+  <ng-container #viewPC></ng-container>
+</div>

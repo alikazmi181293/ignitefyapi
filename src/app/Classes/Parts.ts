@@ -1,0 +1,30 @@
+export class Parts{
+    Id:number;
+    Brand:string;
+    Model:string;
+    BaseFrequency:number;
+    TurboFrequency:number
+    Cache:string;
+    MemoryType:string;
+    MemorySize:number;
+    FormFactor:string;
+    NumberOfCore:number;
+    NumberOfThread:number;
+    SocketSupport:string;
+    ProcessorGeneration:string;
+    MemoryFrequency:string;
+    ExpensionSlots:string;
+    IOPorts:string;
+    WifiEnable:boolean;
+    AverageLatency:string;
+    Interface:string;
+    Bits:number;
+    Wattage:Int16Array;
+    Modular:boolean;
+    Certifications:string;
+    CoolingSystem:string;
+    Dimensions:string;
+    SidePanel:string;
+    Color:string;
+    subCategoryName:string;
+}

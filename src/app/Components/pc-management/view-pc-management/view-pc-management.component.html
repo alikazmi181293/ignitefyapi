@@ -1,0 +1,383 @@
+<div [class]="showViewPCPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewPCPopup? 'block' : 'none'}" style="height: 80vh;" id="addProcessorModel" tabindex="-1" role="dialog" aria-labelledby="addProcessorModel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="height: 75vh;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">PC Details</h5>
+        <button type="button" (click)="CloseViewPCPopup()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="overflow: auto;">
+        <div class="row margin-b10 image-center">
+          <img [src]="viewPC.IgnitefyPCImages.FirstImagePath" class="margin-l15 margin-r54" height="90" width="90">
+          <img [src]="viewPC.IgnitefyPCImages.SecondImagePath" class="margin-r54" height="90" width="90">
+          <img [src]="viewPC.IgnitefyPCImages.ThirdImagePath" class="margin-r54" height="90" width="90">
+          <img [src]="viewPC.IgnitefyPCImages.FourthImagePath" height="90" width="90">
+        </div>
+        <div class="row margin-b10">
+          <a href="{{viewPC?.IgnitefyPCImages?.FirstImagePath }}" target="_blank" class="btn btn-outline-link btn-sm margin-l144 margin-r72" type="button">Full View</a>
+          <a href="{{viewPC?.IgnitefyPCImages?.SecondImagePath}}" target="_blank" class="btn btn-outline-link btn-sm margin-r72" type="button">Full View</a>
+          <a href="{{viewPC?.IgnitefyPCImages?.ThirdImagePath }}" target="_blank" class="btn btn-outline-link btn-sm margin-r72" type="button">Full View</a>
+          <a href="{{viewPC?.IgnitefyPCImages?.FourthImagePath}}" target="_blank" class="btn btn-outline-link btn-sm" type="button">Full View</a>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Category Name:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.ProductCategory.CategoryName}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">PC Name:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Name}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Price:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Price}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Processor Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Generation:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.ProcessorGeneration}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Socket Support:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.SocketSupport}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Cache:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.Cache}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Base Frequency:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.BaseFrequency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Turbo Frequency:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.TurboFrequency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">No. of Cores:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.NumberOfCore}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">No. of Threads:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Processor.NumberOfThread}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Motherboard Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Form Factor:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.FormFactor}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Motherboard Socket:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.SocketSupport}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Technology:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.MemoryType}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Speed:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.MemoryFrequency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Expension Slots:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.ExpensionSlots}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">IO Ports:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.IOPorts}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Wifi Enabled:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Motherboard.WifiEnable? 'true':'false'}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>RAM Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.RAM.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.RAM.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Technology:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.RAM.MemoryType}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Speed:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.RAM.MemoryFrequency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Size:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.RAM.MemorySize}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Graphic Card Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Bits:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.Bits}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Type:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.MemoryType}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Size:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.MemorySize}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Core Clocks:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.BaseFrequency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Over Clocks:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.GraphicCard.TurboFrequency}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Power Supply Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.PowerSupply.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.PowerSupply.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Wattage:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.PowerSupply.Wattage}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Certifications:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.PowerSupply.Certifications}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Cooling System:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.PowerSupply.CoolingSystem}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Casing Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Dimensions:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.Dimensions}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Side Panel:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.SidePanel}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Color:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.Color}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Form Factor:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.FormFactor}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">IO Ports:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.IOPorts}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Cooling System:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Casing.CoolingSystem}}
+          </div>
+        </div>
+        <hr>
+        <div class="col-12 col-md-12 padding-0 font-20">
+          <label><b>Storage Details</b></label>
+        </div>
+        <hr>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Brand:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.Brand}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Model:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.Model}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Storage Capacity:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.MemorySize}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Interface:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.Interface}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Cache:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.Cache}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Average Latency:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.AverageLatency}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label">Memory Type:</label></div>
+          <div class="col-12 col-md-6">
+            {{viewPC.Storage.MemoryType}}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="CloseViewPCPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

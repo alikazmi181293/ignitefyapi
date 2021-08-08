@@ -1,0 +1,47 @@
+<div [class]="showViewPowerSupplyPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewPowerSupplyPopup? 'block' : 'none'}" style="height: 80vh;" id="addPowerSupplyModel" tabindex="-1" role="dialog" aria-labelledby="addPowerSupplyModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 45vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">PowerSupply Details</h5>
+                <button type="button" (click)="CloseViewPowerSupplyPopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Brand:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Brand}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Model:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Model}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Wattage:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Wattage + " Watts"}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Certifications:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Certifications}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Cooling System:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.CoolingSystem}}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseViewPowerSupplyPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

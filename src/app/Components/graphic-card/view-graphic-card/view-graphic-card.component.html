@@ -1,0 +1,59 @@
+<div [class]="showViewGraphicCardPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewGraphicCardPopup? 'block' : 'none'}" style="height: 80vh;" id="addGraphicCardModel" tabindex="-1" role="dialog" aria-labelledby="addGraphicCardModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 60vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">GraphicCard Details</h5>
+                <button type="button" (click)="CloseViewGraphicCardPopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Brand:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.Brand}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Model:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.Model}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Bits:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.Bits + ' Bits'}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Memory Type:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.MemoryType}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Memory Size:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.MemorySize + ' GB'}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Core Clocks:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.BaseFrequency + ' MHZ'}}
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Over Clocks:</b></label></div>
+                <div class="col-12 col-md-6">
+                  {{viewPart.TurboFrequency + ' MHZ'}}
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseViewGraphicCardPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

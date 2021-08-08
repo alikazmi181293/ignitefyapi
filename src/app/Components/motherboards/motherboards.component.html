@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row margin-r1"> 
+                    <div class="col-lg-11">
+                        <h4 class="box-title">List of Motherboards</h4>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="form-actions form-group"><button type="submit" (click)="loadAddMotherboardComponent()" class="btn btn-primary btn-sm">Add item</button></div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-l20">
+                <div class="table-stats order-table ov-h w-97">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">#</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Form Factor</th>
+                                <th>Motherboard Sockets</th>
+                                <th>View</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="motherboardList && motherboardList.length > 0">
+                            <tr *ngFor="let motherboard of motherboardList;let i = index">
+                                <td class="serial">
+                                    {{i+1}}
+                                </td>
+                                <td class="avatar">
+                                    <span>{{motherboard.Brand}}</span>
+                                </td>
+                                <td>
+                                    <span class="name">{{motherboard.Model}}</span> 
+                                </td>
+                                <td>  
+                                    <span class="name">{{motherboard.FormFactor}}</span> 
+                                </td>
+                                <td> 
+                                    <span class="product">{{motherboard.SocketSupport}}</span> 
+                                </td>
+                                <td>
+                                    <span (click)="loadViewMotherboardComponent(motherboard)" class="cursor-pointer badge badge-info">View</span>
+                                </td>
+                                <td>
+                                    <span (click)="loadEditMotherboardComponent(motherboard.Id)" class="cursor-pointer badge badge-secondary">Edit</span>
+                                </td>
+                                <td>
+                                    <span (click)="loadDeleteMotherboardComponent(motherboard.Id)" class="cursor-pointer badge badge-danger">Delete</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="!motherboardList || (motherboardList && motherboardList.length == 0)" style="text-align: center;">
+                            <tr>
+                                <td style="text-align: center;" colspan="8">No Records Found</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div> <!-- /.row -->
+            <div class="card-body"></div>
+        </div>
+    </div><!-- /# column -->
+    <ng-container #addMotherboard></ng-container>
+    <ng-container #editMotherboard></ng-container>
+    <ng-container #deleteMotherboard></ng-container>
+    <ng-container #viewMotherboard></ng-container>
+</div>

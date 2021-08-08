@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+.ignitefy-logo{
+    color: whitesmoke !important;
+    font-size: 85px;
+    font-family: fantasy;
+}
+.margin-b30
+{
+    margin-bottom: 30px !important;
+}
+.margin-b10 {
+  margin-bottom: 10px !important;
+}
+.margin-r1{
+  margin-right: 1px !important;
+}
+.margin-r5 {
+  margin-right: 5px !important;
+}
+.margin-r40 {
+  margin-right: 40px !important;
+}
+.margin-r54 {
+  margin-right: 54px !important;
+}
+.margin-r72 {
+  margin-right: 72px !important;
+}
+.margin-r82 {
+  margin-right: 82px !important;
+}
+.margin-l15 {
+  margin-left: 15px !important;
+}
+.margin-l27 {
+  margin-left: 27px !important;
+}
+.margin-l144 {
+  margin-left: 144px !important;
+}
+.margin-l20{
+  margin-left: 20px !important;
+}
+.padding-0{
+    padding:0px !important;
+}
+.font-20{
+    font-size:20px;
+}
+.w-97{
+  width: 97%;
+}
+.w-0 {
+  width: 0% !important;
+}
+@keyframes shake3 {
+    0% {left: -5px}
+    16% {left: 5px}
+    33% {left: -5px}
+    49% {left: 5px}
+    66% {left: -5px}
+    80% {left: 5px}
+    100% {left: 0}
+} /* And @keyframes with prefixes */
+
+.input-error {
+  border: 2px solid red !important;
+  animation-name: shake3;
+  animation-duration: .4s;
+  position: relative;
+  margin-bottom: 0px !important;
+}
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+.invalid-feedback {
+  display: block !important;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+.invalid-feedback-w0 {
+  display: block !important;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+.image-center{
+    text-align:center !important;
+    display:block !important;
+}

@@ -1,0 +1,70 @@
+<div [class]="showEditPowerSupplyPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showEditPowerSupplyPopup? 'block' : 'none'}" style="height: 80vh;" id="addPowerSupplyModel" tabindex="-1" role="dialog" aria-labelledby="addPowerSupplyModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 50vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Edit Power Supply</h5>
+                <button type="button" (click)="CloseEditPowerSupplyPopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                    <div class="card-body card-block">
+                        <form [formGroup]="PowerSupplyForm" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Brand</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="brand" [(ngModel)]="part.Brand" [ngClass]="{ 'input-error': submitted && this.PowerSupplyForm?.controls?.brand?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.PowerSupplyForm?.controls?.brand?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.PowerSupplyForm?.controls?.brand?.errors?.required">Brand is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Model</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="model" [(ngModel)]="part.Model" [ngClass]="{ 'input-error': submitted && this.PowerSupplyForm?.controls?.model?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.PowerSupplyForm?.controls?.model?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.PowerSupplyForm?.controls?.model?.errors?.required">Model is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Wattage</label></div>
+                              <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                  <input type="number" formControlName="Wattage" [(ngModel)]="part.Wattage" [ngClass]="{ 'input-error': submitted && this.PowerSupplyForm?.controls?.Wattage?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                  <div class="input-group-addon">Watts</div>
+                                  <div *ngIf="submitted && this.PowerSupplyForm?.controls?.Wattage?.errors" class="invalid-feedback">
+                                    <div class="error-message" *ngIf="this.PowerSupplyForm?.controls?.Wattage?.errors?.required">Wattage is required</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Certifications</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="Certifications" [(ngModel)]="part.Certifications" [ngClass]="{ 'input-error': submitted && this.PowerSupplyForm?.controls?.Certifications?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.PowerSupplyForm?.controls?.Certifications?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.PowerSupplyForm?.controls?.Certifications?.errors?.required">Certifications is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cooling System</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="CoolingSystem" [(ngModel)]="part.CoolingSystem" [ngClass]="{ 'input-error': submitted && this.PowerSupplyForm?.controls?.CoolingSystem?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.PowerSupplyForm?.controls?.CoolingSystem?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.PowerSupplyForm?.controls?.CoolingSystem?.errors?.required">Cooling System is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseEditPowerSupplyPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" (click)="onSubmitForm()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

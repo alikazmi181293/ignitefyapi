@@ -1,0 +1,47 @@
+<div [class]="showViewUserPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewUserPopup? 'block' : 'none'}" style="height: 80vh;" id="addUserModel" tabindex="-1" role="dialog" aria-labelledby="addUserModel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="height: 45vh;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">User Details</h5>
+        <button type="button" (click)="CloseViewUserPopup()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="overflow: auto;">
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Name:</b></label></div>
+          <div class="col-12 col-md-6">
+            {{userProfileDTO.Name}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Email:</b></label></div>
+          <div class="col-12 col-md-6">
+            {{userProfileDTO.Email}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>User Name:</b></label></div>
+          <div class="col-12 col-md-6">
+            {{userProfileDTO.UserName}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Phone Number:</b></label></div>
+          <div class="col-12 col-md-6">
+            {{userProfileDTO.PhoneNumber}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Address:</b></label></div>
+          <div class="col-12 col-md-6">
+            {{userProfileDTO.Address}}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="CloseViewUserPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

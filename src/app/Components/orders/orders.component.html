@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row margin-r1">
+                    <div class="col-lg-11">
+                        <h4 class="box-title">List of Order</h4>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="form-actions form-group"><button type="submit"  class="btn btn-primary btn-sm">Add item</button></div>    
+                    </div>
+                </div>
+            </div> 
+            <div class="row margin-l20">
+                <div class="table-stats order-table ov-h w-97">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">#</th>
+                                <th>Order Date</th>
+                                <th>Order Time</th>
+                                <th>No of Products</th>
+                                <th>Order Status</th>
+                                <th colspan="2" class="text-center">Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="orders && orders.length > 0">
+                            <tr *ngFor="let order of orders;let i = index">
+                                <td class="serial">
+                                    {{i+1}}
+                                </td>
+                                <td class="avatar">
+                                    <span>{{order?.PCOrder?.OrderDate}}</span>
+                                </td>
+                                <td>
+                                    <span class="name">{{order?.PCOrder?.OrderTime}}</span> 
+                                </td>
+                                <td>  
+                                    <span class="name">{{order?.CartItems?.length}}</span> 
+                                </td>
+                               
+                                <td>  
+                                    <span class="name">{{order?.PCOrder?.OrderStatus}}</span> 
+                                </td>
+                                <td>
+                                    <span (click)="loadViewOrderComponent(order)" class="cursor-pointer badge badge-info">View</span>
+                                </td>
+                                
+                                <td>
+                                    <span (click)="loadDeleteMotherboardComponent(motherboard.Id)" class="cursor-pointer badge badge-danger">Delete</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="!orders || (orders && orders.length == 0)" style="text-align: center;">
+                            <tr>
+                                <td style="text-align: center;" colspan="8">No Records Found</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div> <!-- /.row -->
+            <div class="card-body"></div>
+        </div>
+    </div><!-- /# column -->
+    <ng-container #viewOrder></ng-container>
+
+</div>
+

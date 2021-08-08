@@ -1,0 +1,163 @@
+<div [class]="showViewPCPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewPCPopup? 'block' : 'none'}" style="height: 80vh;" id="addProcessorModel" tabindex="-1" role="dialog" aria-labelledby="addProcessorModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" style="height: 75vh;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mediumModalLabel">Order Details</h5>
+          <button type="button" (click)="CloseViewPCPopup()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="overflow: auto;">
+         
+          <hr>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Order Date:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.PCOrder.OrderDate}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Order Status:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.PCOrder.OrderStatus}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Order Time:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.PCOrder.OrderTime}}
+            </div>
+          </div>
+          <hr>
+          <div class="col-12 col-md-12 padding-0 font-20">
+            <label><b>Cart Item Details</b></label>
+          </div>
+          <hr>
+        <div *ngFor="let o of viewOrder.CartItems;let i = index">
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Product Name:</label></div>
+            <div class="col-12 col-md-6">
+              {{o.ProductName}}
+            </div>
+
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Price:</label></div>
+            <div class="col-12 col-md-6">
+              {{o.price}}
+            </div>
+          </div>
+        </div>
+         
+          <hr>
+          <div class="col-12 col-md-12 padding-0 font-20">
+            <label><b>Billing Address Details</b></label>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Email:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].Email}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Full Name:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].FirstName+" "+viewOrder.DeliveryAddresses[0].LastName}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Phone:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].Phone}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Address:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].Address}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">PostalCode:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].PostalCode}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">District:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].District}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">City:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].City}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Country:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[0].Country}}
+            </div>
+          </div>
+
+          <hr>
+          
+          <div class="col-12 col-md-12 padding-0 font-20">
+            <label><b>Shipping Address Details</b></label>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Email:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].Email}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Full Name:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].FirstName+" "+viewOrder.DeliveryAddresses[0].LastName}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Phone:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].Phone}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Address:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].Address}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">PostalCode:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].PostalCode}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">District:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].District}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">City:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].City}}
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col col-md-6"><label for="text-input" class=" form-control-label">Country:</label></div>
+            <div class="col-12 col-md-6">
+              {{viewOrder.DeliveryAddresses[1].Country}}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="CloseViewPCPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

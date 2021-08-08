@@ -1,0 +1,103 @@
+
+<div [class]="showEditMotherboardPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showEditMotherboardPopup? 'block' : 'none'}" style="height: 80vh;" id="addProcessorModel" tabindex="-1" role="dialog" aria-labelledby="addProcessorModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 66vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Edit Motherboard</h5>
+                <button type="button" (click)="CloseEditMotherboardPopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                    <div class="card-body card-block">
+                        <form [formGroup]="MotherboardForm" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Brand</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="brand" [(ngModel)]="part.Brand" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.brand?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.brand?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.brand?.errors?.required">Brand is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Model</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="model" [(ngModel)]="part.Model" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.brand?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.model?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.model?.errors?.required">Model is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Form Factor</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="formFactor" [(ngModel)]="part.FormFactor" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.formFactor?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.formFactor?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.formFactor?.errors?.required">Form Factor is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Motherboard Socket</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="socketSupport" [(ngModel)]="part.SocketSupport" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.socketSupport?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.socketSupport?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.socketSupport?.errors?.required">Motherboard Socket is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Memory Technology</label></div>
+                                <div class="col-12 col-md-9">
+                                    <select formControlName="MemoryType" [(ngModel)]="part.MemoryType" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.MemoryType?.errors }" class="form-control" autocomplete="off">
+                                      <option value="DDR" selected>DDR</option>
+                                      <option value="DDR2">DDR2</option>
+                                      <option value="DDR3">DDR3</option>
+                                      <option value="DDR4">DDR4</option>
+                                    </select>
+                                  <div *ngIf="submitted && this.MotherboardForm?.controls?.MemoryType?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.MemoryType?.errors?.required">Memory Technology is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Memory Speed</label></div>
+                                <div class="col-12 col-md-9">
+                                  <div class="input-group">
+                                    <input type="text" formControlName="MemoryFrequency" [(ngModel)]="part.MemoryFrequency" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.MemoryFrequency?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div class="input-group-addon">MHZ</div>
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.MemoryFrequency?.errors" class="invalid-feedback">
+                                      <div class="error-message" *ngIf="this.MotherboardForm?.controls?.MemoryFrequency?.errors?.required">Memory Speed is required</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Expension Slots</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="ExpensionSlots" [(ngModel)]="part.ExpensionSlots" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.ExpensionSlots?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.ExpensionSlots?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.ExpensionSlots?.errors?.required">Expension Slots is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">IO Ports</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="IOPorts" [(ngModel)]="part.IOPorts" [ngClass]="{ 'input-error': submitted && this.MotherboardForm?.controls?.IOPorts?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.MotherboardForm?.controls?.IOPorts?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.MotherboardForm?.controls?.IOPorts?.errors?.required">IO Ports is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseEditMotherboardPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" (click)="onSubmitForm()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

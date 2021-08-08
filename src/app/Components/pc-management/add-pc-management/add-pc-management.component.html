@@ -1,0 +1,163 @@
+<div [class]="showAddPCPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showAddPCPopup? 'block' : 'none'}" style="height: 100vh;" id="addPCModel" tabindex="-1" role="dialog" aria-labelledby="addPCModel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="height: 86vh;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mediumModalLabel">Add PC</h5>
+        <button type="button" (click)="CloseAddPCPopup()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="overflow: auto;">
+        <div class="card-body card-block">
+          <form [formGroup]="PCForm" class="form-horizontal">
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Category</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="ProductCategory" id="select" [(ngModel)]="selectedCategory" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.ProductCategory?.errors }">
+                  <option *ngFor="let category of categoryList" value={{category.Id}}>{{category.CategoryName}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.ProductCategory?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.ProductCategory?.errors?.required">Product Category is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">PC Name</label></div>
+              <div class="col-12 col-md-9">
+                <input type="text" formControlName="Name" [(ngModel)]="pcName" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Name?.errors }" id="text-input" name="text-input" class="form-control">
+                <div *ngIf="submitted && this.PCForm?.controls?.Name?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Name?.errors?.required">PC Name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Processor</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="Processor" id="select" [(ngModel)]="selectedProcessor" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Processor?.errors }">
+                  <option *ngFor="let processor of processorList" value={{processor.Id}}>{{processor.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.Processor?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Processor?.errors?.required">Processor is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Motherboard</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="Motherboard" id="select" [(ngModel)]="selectedMotherboard" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Motherboard?.errors }">
+                  <option *ngFor="let motherboard of motherboardList" value={{motherboard.Id}}>{{motherboard.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.Motherboard?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Motherboard?.errors?.required">Motherboard is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select RAM</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="RAM" id="select" [(ngModel)]="selectedRam" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.RAM?.errors }">
+                  <option *ngFor="let ram of ramList" value={{ram.Id}}>{{ram.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.RAM?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.RAM?.errors?.required">RAM is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Graphic Card</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="GraphicCard" id="select" [(ngModel)]="selectedGraphicard" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.GraphicCard?.errors }">
+                  <option *ngFor="let graphicCard of graphicardList" value={{graphicCard.Id}}>{{graphicCard.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.GraphicCard?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.GraphicCard?.errors?.required">Graphic Card is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Power Supply</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="PowerSupply" id="select" [(ngModel)]="selectedPowerSupply" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.PowerSupply?.errors }">
+                  <option *ngFor="let powerSupply of powerSupplyList" value={{powerSupply.Id}}>{{powerSupply.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.PowerSupply?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.PowerSupply?.errors?.required">Power Supply is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Casing</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="Casing" id="select" [(ngModel)]="selectedCasing" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Casing?.errors }">
+                  <option *ngFor="let casing of casingList" value={{casing.Id}}>{{casing.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.Casing?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Casing?.errors?.required">Casing is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Storage</label></div>
+              <div class="col-12 col-md-9">
+                <select formControlName="Storage" id="select" [(ngModel)]="selectedStorage" class="form-control" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Storage?.errors }">
+                  <option *ngFor="let storage of storageList" value={{storage.Id}}>{{storage.Model}}</option>
+                </select>
+                <div *ngIf="submitted && this.PCForm?.controls?.Storage?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Storage?.errors?.required">Storage is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Price</label></div>
+              <div class="col-12 col-md-9">
+                <input type="number" formControlName="Price" [(ngModel)]="pcPrice" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Price?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                <div *ngIf="submitted && this.PCForm?.controls?.Price?.errors" class="invalid-feedback">
+                  <div class="error-message" *ngIf="this.PCForm?.controls?.Price?.errors?.required">Price is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Select Image</label></div>
+              <div class="col-12 col-md-9">
+                <div class="row margin-b10">
+                  <img [src]="imageUrl1" class="margin-l15 margin-r54" height="90" width="90">
+                  <img [src]="imageUrl2" class="margin-r54" height="90" width="90">
+                  <img [src]="imageUrl3" class="margin-r54" height="90" width="90">
+                  <img [src]="imageUrl4" height="90" width="90">
+                </div>
+                <div class="row">
+                  <input formControlName="Image1" id="Image1" #image1 type='file' style="display: none;" (change)="onSelectFile1($event.target.files)">
+                  <button class="btn btn-outline-link btn-sm margin-l27 margin-r82" type="button" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Image1?.errors }" onclick="document.getElementById('Image1').click();">Browse</button>
+                  <input formControlName="Image2" id="Image2" #image2 type='file' style="display: none;" (change)="onSelectFile2($event.target.files)">
+                  <button class="btn btn-outline-link btn-sm margin-r82" type="button" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Image2?.errors }" onclick="document.getElementById('Image2').click();">Browse</button>
+                  <input formControlName="Image3" id="Image3" #image3 type='file' style="display: none;" (change)="onSelectFile3($event.target.files)">
+                  <button class="btn btn-outline-link btn-sm margin-r82" type="button" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Image3?.errors }" onclick="document.getElementById('Image3').click();">Browse</button>
+                  <input formControlName="Image4" id="Image4" #image4 type='file' style="display: none;" (change)="onSelectFile4($event.target.files)">
+                  <button class="btn btn-outline-link btn-sm" type="button" [ngClass]="{ 'input-error': submitted && this.PCForm?.controls?.Image4?.errors }" onclick="document.getElementById('Image4').click();">Browse</button>
+                </div>
+                <div class="row">
+                  <div *ngIf="submitted && this.PCForm?.controls?.Image1?.errors" class="invalid-feedback-w0 margin-r40">
+                    <div class="error-message" *ngIf="this.PCForm?.controls?.Image1?.errors?.required">Images 1 is required</div>
+                  </div>
+                  <div *ngIf="submitted && this.PCForm?.controls?.Image2?.errors" class="invalid-feedback-w0 margin-r40">
+                    <div class="error-message" *ngIf="this.PCForm?.controls?.Image2?.errors?.required">Images 2 is required</div>
+                  </div>
+                  <div *ngIf="submitted && this.PCForm?.controls?.Image3?.errors" class="invalid-feedback-w0 margin-r40">
+                    <div class="error-message" *ngIf="this.PCForm?.controls?.Image3?.errors?.required">Images 3 is required</div>
+                  </div>
+                  <div *ngIf="submitted && this.PCForm?.controls?.Image4?.errors" class="invalid-feedback-w0">
+                    <div class="error-message" *ngIf="this.PCForm?.controls?.Image4?.errors?.required">Images 4 is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="CloseAddPCPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" (click)="onSubmitForm()" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

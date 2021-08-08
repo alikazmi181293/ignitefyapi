@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row margin-r1">
+                    <div class="col-lg-11">
+                        <h4 class="box-title">List of Graphic Cards</h4>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="form-actions form-group"><button type="submit" (click)="loadAddGraphicCardComponent()" class="btn btn-primary btn-sm">Add item</button></div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-l20">
+                <div class="table-stats order-table ov-h w-97">
+                  <table class="table ">
+                    <thead>
+                      <tr>
+                        <th class="serial">#</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Core Clocks</th>
+                        <th>Bits</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="GraphicCardsList && GraphicCardsList.length > 0">
+                      <tr *ngFor="let GraphicCard of GraphicCardsList;let i = index">
+                        <td class="serial">
+                          {{i+1}}
+                        </td>
+                        <td class="avatar">
+                          <span>{{GraphicCard.Brand}}</span>
+                        </td>
+                        <td>
+                          <span class="name">{{GraphicCard.Model}}</span>
+                        </td>
+                        <td>
+                          <span class="name">{{GraphicCard.BaseFrequency + ' MHZ'}}</span>
+                        </td>
+                        <td>
+                          <span class="product">{{GraphicCard.Bits + ' Bits'}}</span>
+                        </td>
+                        <td>
+                          <span (click)="loadViewGraphicCardComponent(GraphicCard)" class="cursor-pointer badge badge-info">View</span>
+                        </td>
+                        <td>
+                          <span (click)="loadEditGraphicCardComponent(GraphicCard.Id)" class="cursor-pointer badge badge-secondary">Edit</span>
+                        </td>
+                        <td>
+                          <span (click)="loadDeleteGraphicCardComponent(GraphicCard.Id)" class="cursor-pointer badge badge-danger">Delete</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody *ngIf="!GraphicCardsList || (GraphicCardsList && GraphicCardsList.length == 0)" style="text-align: center;">
+                      <tr>
+                        <td style="text-align: center;" colspan="8">No Records Found</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> <!-- /.table-stats -->
+            </div> <!-- /.row -->
+            <div class="card-body"></div>
+        </div>
+    </div><!-- /# column -->
+    <ng-container #addGraphicCard></ng-container>
+    <ng-container #editGraphicCard></ng-container>
+    <ng-container #deleteGraphicCard></ng-container>
+    <ng-container #viewGraphicCard></ng-container>
+</div>

@@ -1,0 +1,47 @@
+<div [class]="showViewRamPopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showViewRamPopup? 'block' : 'none'}" style="height: 80vh;" id="addProcessorModel" tabindex="-1" role="dialog" aria-labelledby="addProcessorModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 42vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">RAM Details</h5>
+                <button type="button" (click)="CloseViewRamPopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Brand:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Brand}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Model:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.Model}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Memory Technology:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.MemoryType}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Memory Speed:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.MemoryFrequency + " MHZ"}}
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label"><b>Memory Size:</b></label></div>
+                    <div class="col-12 col-md-6">
+                        {{viewPart.MemorySize  + " GB"}}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseViewRamPopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

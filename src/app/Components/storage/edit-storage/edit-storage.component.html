@@ -1,0 +1,97 @@
+<div [class]="showEditStoragePopup? 'modal fade show':'modal fade'" [ngStyle]="{'display': showEditStoragePopup? 'block' : 'none'}" style="height: 80vh;" id="addProcessorModel" tabindex="-1" role="dialog" aria-labelledby="addProcessorModel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="height: 65vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Edit Storages Device</h5>
+                <button type="button" (click)="CloseEditStoragePopup()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                    <div class="card-body card-block">
+                        <form [formGroup]="StorageForm" class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Brand</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="brand" [(ngModel)]="part.Brand" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.brand?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.StorageForm?.controls?.brand?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.StorageForm?.controls?.brand?.errors?.required">Brand is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Model</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="model" [(ngModel)]="part.Model" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.model?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.StorageForm?.controls?.model?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.StorageForm?.controls?.model?.errors?.required">Model is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Storage Capacity</label></div>
+                              <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                  <input type="number" formControlName="MemorySize" [(ngModel)]="part.MemorySize" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.MemorySize?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                  <div class="input-group-addon">GB/TB</div>
+                                  <div *ngIf="submitted && this.StorageForm?.controls?.MemorySize?.errors" class="invalid-feedback">
+                                    <div class="error-message" *ngIf="this.StorageForm?.controls?.MemorySize?.errors?.required">Storage Capacity is required</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Interface</label></div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" formControlName="Interface" [(ngModel)]="part.Interface" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.Interface?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                    <div *ngIf="submitted && this.StorageForm?.controls?.Interface?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.StorageForm?.controls?.Interface?.errors?.required">Interface is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cache</label></div>
+                              <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                  <input type="number" formControlName="cache" [(ngModel)]="part.Cache" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.cache?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                  <div class="input-group-addon">MB</div>
+                                  <div *ngIf="submitted && this.StorageForm?.controls?.cache?.errors" class="invalid-feedback">
+                                    <div class="error-message" *ngIf="this.StorageForm?.controls?.cache?.errors?.required">Cache is required</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                              <div class="col col-md-3"><label for="text-input" class=" form-control-label">Average Latency</label></div>
+                              <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                  <input type="number" formControlName="AverageLatency" [(ngModel)]="part.AverageLatency" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.AverageLatency?.errors }" id="text-input" name="text-input" class="form-control" autocomplete="off">
+                                  <div class="input-group-addon">ms</div>
+                                  <div *ngIf="submitted && this.StorageForm?.controls?.AverageLatency?.errors" class="invalid-feedback">
+                                    <div class="error-message" *ngIf="this.StorageForm?.controls?.AverageLatency?.errors?.required">Average Latency is required</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Memory Type</label></div>
+                                <div class="col-12 col-md-9">
+                                  <select formControlName="MemoryType" [(ngModel)]="part.MemoryType" [ngClass]="{ 'input-error': submitted && this.StorageForm?.controls?.MemoryType?.errors }" class="form-control">
+                                    <option value="HDD" selected>HDD</option>
+                                    <option value="SSD">SSD</option>
+                                  </select>
+                                  <div *ngIf="submitted && this.StorageForm?.controls?.MemoryType?.errors" class="invalid-feedback">
+                                        <div class="error-message" *ngIf="this.StorageForm?.controls?.MemoryType?.errors?.required">Memory Type is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="CloseEditStoragePopup()" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" (click)="onSubmitForm()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
